@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 背景と基本フォントサイズ */
+body {
+    background-color: white;
+    font-size: 100%;
+}
+
+/* スマホ用メディアクエリ */
+@media screen and (max-width: 768px) {}
+
+/* タブレット(縦向き)用メディアクエリ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {}
