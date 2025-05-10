@@ -8,10 +8,254 @@
 body {
     background-color: white;
     font-size: 100%;
+    font-family: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "MS Mincho", serif;
+}
+
+.TopHeader {
+    position: relative;
+    width: 100%;
+    /* background-color: #333; */
+    padding: 2em;
+}
+
+/* ハンバーガーメニュー */
+.BurgerMenu {
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background-color: transparent;
+    /* 背景を透明に設定 */
+    margin-top: 2em;
+    margin-right: 2em;
+    z-index: 1000;
+    /* スライダーより前面に表示 */
+}
+
+.BurgerMenu span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* メニューが開いたときのアニメーション */
+.BurgerMenu.active span:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+}
+
+.BurgerMenu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.BurgerMenu.active span:nth-child(3) {
+    transform: translateY(-12px) rotate(-45deg);
+}
+
+/* ナビゲーションメニュー */
+.nav {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(127, 152, 87, 0.8);
+    /* 背景を透明に設定 */
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    /* スライダーより前面に表示 */
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.nav ul li {
+    margin: 20px 0;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* メニューが開いたとき */
+.nav.active {
+    right: 0;
+}
+
+.Topslider {
+    position: absolute;
+    /* スライダーを絶対位置に設定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2em 2em;
+    padding-top: 1em;
+    z-index: 1;
+    /* バーガーメニューの下に配置 */
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 画像をスライダー領域にフィットさせる */
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* 汎用タグ */
+h2 {
+    margin-top: 5em;
+    font-size: 2em;
+    text-align: center;
+    color: #e0b74f;
+}
+
+.About h2 {
+    margin-top: 23em;
+    font-size: 2em;
+    text-align: center;
+    color: #e0b74f;
+}
+
+/* 　汎用 */
+p {
+    text-align: center;
+    color: #e0b74f;
+    font-size: 1.1em;
+}
+
+/* 汎用 */
+hr {
+    border: none;
+    height: 1.5px;
+    margin: 3em 10em;
+    background-color: #e0b74f;
+}
+
+.profile-inner img {
+    width: 35%;
+    margin-left: 11em;
+}
+
+.profile-inner {
+    display: flex;
+}
+
+.profile-inner p {
+    margin-left: 2.5em;
+    color: black;
+}
+
+section {
+    scroll-margin-top: 80px;
+    /* 固定ヘッダーの高さ分の余白を追加 */
+}
+
+.plan-inner {
+    display: flex;
+}
+
+.plan-inner img {
+    width: 35%;
+    margin-left: 11em;
 }
 
 /* スマホ用メディアクエリ */
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    .nav {
+        width: 180px;
+        height: 100vh;
+        right: -100%;
+        /* スライダーの幅に合わせて調整 */
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+
+    }
+
+    .BurgerMenu {
+        margin: 0 0;
+    }
+
+    .Topslider {
+        padding: 0 0;
+        /* スライダーのパディングを調整 */
+    }
+
+    .slide img {
+        width: 25em;
+        object-fit: cover;
+        object-position: 40% center;
+        /* 画像をスライダー領域にフィットさせる */
+    }
+
+    hr {
+        margin: 2em 3em;
+    }
+
+    .profile-inner img {
+        width: 100%;
+        padding: 0 3em;
+        margin-left: 0;
+    }
+
+    .profile-inner {
+        display: block;
+    }
+
+    .profile-inner p {
+        text-align: left;
+        margin-left: 3em;
+        margin-top: 1.5em;
+        color: black;
+    }
+
+    .plan-inner {
+        display: block;
+    }
+
+    .plan-inner img {
+        width: 100%;
+        padding: 0 3em;
+        margin-left: 0;
+    }
+}
 
 /* タブレット(縦向き)用メディアクエリ */
 @media screen and (min-width: 769px) and (max-width: 1024px) {}
