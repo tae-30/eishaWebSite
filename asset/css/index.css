@@ -6,6 +6,7 @@
 
 /* 背景と基本フォントサイズ */
 body {
+    max-width: 1000px;
     background-color: white;
     font-size: 100%;
     font-family: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "MS Mincho", serif;
@@ -30,11 +31,9 @@ body {
     top: 15px;
     right: 20px;
     background-color: transparent;
-    /* 背景を透明に設定 */
-    margin-top: 2em;
-    margin-right: 2em;
-    z-index: 1000;
-    /* スライダーより前面に表示 */
+    z-index: 10;
+    transition: transform 0.3s ease-in-out;
+    /* スライドアニメーションを追加 */
 }
 
 .BurgerMenu span {
@@ -137,25 +136,59 @@ body {
     opacity: 1;
 }
 
+a {
+    text-decoration: none;
+    color: #000;
+    font-size: 2em;
+}
+
 /* 汎用タグ */
 h2 {
-    margin-top: 5em;
+    margin-top: 3em;
     font-size: 2em;
     text-align: center;
-    color: #e0b74f;
+    color: #c89f3f;
+}
+
+.About-link a {
+    margin-top: 23em;
+}
+
+.About-link p {
+    margin-left: 0.5em;
+}
+
+.link {
+    position: relative;
+    width: 30%;
+    margin-left: 10em;
+    margin-bottom: 15em;
+    z-index: 10;
+}
+
+.link a {
+    display: block;
+}
+
+.About {
+    margin-left: 5em;
 }
 
 .About h2 {
-    margin-top: 23em;
     font-size: 2em;
     text-align: center;
-    color: #e0b74f;
+    color: #c89f3f;
+}
+
+.link p {
+    color: #000;
+    text-align: left;
 }
 
 /* 　汎用 */
 p {
     text-align: center;
-    color: #e0b74f;
+    color: #c89f3f;
     font-size: 1.1em;
 }
 
@@ -163,8 +196,14 @@ p {
 hr {
     border: none;
     height: 1.5px;
-    margin: 3em 10em;
-    background-color: #e0b74f;
+    margin: 3em 3em;
+    margin-left: 5em;
+    background-color: #c89f3f;
+}
+
+.link-img img {
+    width: 100%;
+    margin-left: 3em;
 }
 
 .profile-inner img {
@@ -188,6 +227,7 @@ section {
 
 .plan-inner {
     display: flex;
+
 }
 
 .plan-inner img {
@@ -195,8 +235,47 @@ section {
     margin-left: 11em;
 }
 
+.Plan-link {
+    margin-left: 55em;
+    margin-top: -15em;
+}
+
+.plan-img {
+    max-width: 20em;
+    margin-left: -17em;
+}
+
+
+.plan-img img {
+    width: 100%;
+}
+
+.price {
+    display: flex;
+}
+
+.price img {
+    width: 30%;
+}
+
+/* .price {
+    width: 15%;
+    background-color: rgba(127, 152, 87, 0.8);
+    margin-left: 4em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.price p {
+    color: black;
+} */
+
 /* スマホ用メディアクエリ */
 @media screen and (max-width: 768px) {
+    .body {
+        max-width: 768px;
+    }
+
     .nav {
         width: 180px;
         height: 100vh;
@@ -225,8 +304,34 @@ section {
         /* 画像をスライダー領域にフィットさせる */
     }
 
+    .About {
+        margin-left: 0.5em;
+    }
+
+    h2 {
+        margin-top: 1em;
+    }
+
     hr {
-        margin: 2em 3em;
+        margin: 2em;
+    }
+
+    .link {
+        margin-left: 2em;
+    }
+
+    .link-img img {
+        width: 250%;
+        margin-left: 1.5em;
+    }
+
+    .Plan-link {
+        margin-top: 2em;
+    }
+
+    .plan-img img {
+        width: 90%;
+        margin-left: 18.5em;
     }
 
     .profile-inner img {
@@ -253,7 +358,18 @@ section {
     .plan-inner img {
         width: 100%;
         padding: 0 3em;
+        margin-top: 3em;
         margin-left: 0;
+    }
+
+    .price {
+        width: 30%;
+    }
+
+    .price img {
+        width: 180%;
+        margin-right: -3em;
+        margin-left: 0.3em;
     }
 }
 
